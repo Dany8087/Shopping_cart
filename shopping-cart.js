@@ -5,7 +5,6 @@ if(!productsInCart){
 const parentElement = document.querySelector('#buyItems');
 const cartSumPrice = document.querySelector('#sum-prices');
 const products = document.querySelectorAll('.product-under');
-const addtocart = document.querySelectorAll('#addToCart')
 
 
 const countTheSumPrice = function () { // 4
@@ -49,8 +48,10 @@ const updateShoppingCartHTML = function () {  // 3
 
 function updateProductsInCart(product) { // 2
 	for (let i = 0; i < productsInCart.length; i++) {
-		if (productsInCart[i].id == product.id) {
-			productsInCart[i].count += 1;
+		if (productsInCart[i].id == product.id ) {
+			// productsInCart[i].count += 1;
+			productsInCart.splice(i, 1);
+			localStorage.setItem('shoppingcart', JSON.stringify(productsInCart));
 			productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
 			return;
 		}
@@ -62,6 +63,7 @@ const btnclk1 = document.querySelector("#btn1").addEventListener('click', functi
 	console.log(this.innerText);
 	if(this.innerText === "Add To Cart"){
 				this.innerText ="Remove from Cart";
+                
 			}else {
 				this.innerText = "Add To Cart";
 			}
@@ -117,14 +119,14 @@ products.forEach(item => {   // 1
 
 parentElement.addEventListener('click', (e) => { // Last
 	const isPlusButton = e.target.classList.contains('button-plus');
-	const isMinusButton = e.target.classList.contains('button-minus');
-	if (isPlusButton || isMinusButton) {
+	const isRemoveButton = e.target.classList.contains('button-minus');
+	if (isPlusButton || isRemoveButton) {
 		for (let i = 0; i < productsInCart.length; i++) {
 			if (productsInCart[i].id == e.target.dataset.id) {
 				if (isPlusButton) {
 					productsInCart[i].count += 1
 				}
-				else if (isMinusButton) {
+				else if (isRemoveButton) {
 					productsInCart[i].count -= 1
 				}
 				productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;

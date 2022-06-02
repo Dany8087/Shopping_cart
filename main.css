@@ -188,7 +188,7 @@ nav .navbar-top {
 }
 
 .producstOnCart ul {
-    text-align: left;
+    text-align: justify;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -344,7 +344,7 @@ main {
 }
 .main-section h3 {
     font-size: 1.3rem;
-    padding: 50px;
+    padding: 25px;
 }
 
 .products {
@@ -405,13 +405,13 @@ main {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 75%;
 }
 
 .product-summary {
     font-size: 0.9rem;
     position: relative;
-    padding: 10px 5px;
+    padding: 0px 0px;
     height: 38%;
 }
 
