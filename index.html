@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" href="main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <!-- <script src="JS/jquery-3.5.1.min.js"></script> -->
+    <!-- <script src="JS/multislider.min.js"></script> -->
+    <title>Demo</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav>
+        <!--Navbar has two part the top one and the bottom one-->
+        <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+        <div class="navbar-top">
+            <div>
+                <button id="menuButton"><i class="fas fa-bars"></i></button>
+                <!--Logo-->
+                <a href="index.html">
+                    <h2 class="logo">LOGO</h2>
+                </a>
+            </div>
+            <div>
+                <!--My account part-->
+                <div class="account">
+                    <a href="index.html">
+                        <button class="account-btn">
+                            <i class="fas fa-user-alt"></i>
+                        </button>
+                        <span class="account-text">My account</span>
+                    </a>
+                    <!--When we click the btnShowAccountInfo this section will be displayed-->
+                </div>
+                <!--Shopping cart-->
+                <div class="shopping-cart">
+                    <div class="sum-prices">
+                        <!--Shopping cart logo-->
+                        <i class="fas fa-shopping-cart shoppingCartButton">Cart</i>
+                        <!--The total prices of products in the shopping cart -->
+                        <h6 id="sum-prices"></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="producstOnCart hide">
+            <div class="overlay"></div>
+            <div class="top">
+                <button class="btn-small" id="closeButton" style="width: 48px;">
+                    <i class="fas fa-times-circle">Close</i>
+                </button>
+                <h3>Cart</h3>
+            </div>
+            <ul id="buyItems">
+                <h4 class="empty">Your shopping cart is empty</h4>
+                <!-- <li class="buyItem">
+						<img src="Images/producs-images/Mobiles/galaxynote10.png">
+						<div>
+							<h5>Products Name</h5>
+							<h6>Rs.199</h6>
+							<div>
+								<button>Remove</button>
+								<span class="countOfProduct">1</span>
+								<button>+</button>
+							</div>
+						</div>
+					</li> -->
+            </ul>
+            <button class="btn checkout hidden">Check out</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="main-section">
+            <div class="product-container">
+                <h3>BEST PRODUCTS</h3>
+                <div class="products">
+                    <div class="product">
+                        <div class="product-under">
+                            <figure class="product-image">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=80"
+                                    alt="popular labtops and computers" />
+                            </figure>
+
+                            <div class="product-summary">
+                                <h6 class="price">
+                                    Rs.<span class="priceValue">999</span>
+                                </h6>
+                                <h4 class="productName" style="font-size: 15px">Shoes</h4>
+                                <button class="btn fas fa-cart-plus addToCart" id="btn1" data-product-id="4">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-under">
+                            <figure class="product-image">
+                                <img src="https://5.imimg.com/data5/NM/LX/MY-42532489/mens-black-jacket-500x500.jpg"
+                                    alt="popular labtops and computers" />
+                                <div class="product-over">
+                                </div>
+                            </figure>
+                            <div class="product-summary">
+                                <h6 class="price">
+                                    Rs.<span class="priceValue">599</span>
+                                </h6>
+                                <h4 class="productName" style="font-size: 15px">Jacjet</h4>
+                                <button class="btn fas fa-cart-plus addToCart" id="btn2" data-product-id="4">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-under">
+                            <figure class="product-image">
+                                <img src="https://www.jeanswholesaler.in/3223-thickbox_default/men-tone-jeans-pant-dl-1030.jpg"
+                                    alt="popular labtops and computers" />
+                                <div class="product-over">
+                                </div>
+                            </figure>
+                            <div class="product-summary">
+                                <h6 class="price">
+                                    Rs.<span class="priceValue">650</span>
+                                </h6>
+                                <h4 class="productName" style="font-size: 15px">Jeans</h4>
+                                <button class="btn fas fa-cart-plus addToCart" id="btn3" data-product-id="4">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-under">
+                            <figure class="product-image">
+                                <img src="https://cdn.anscommerce.com/catalog/brandstore/johnson/17_7_20/Sale.jpg"
+                                    alt="popular labtops and computers" />
+                                <div class="product-over">
+                                </div>
+                            </figure>
+                            <div class="product-summary">
+                                <h6 class="price text-center">
+                                    Rs.<span class="priceValue text-center">899</span>
+                                </h6>
+                                <h4 class="productName" style="font-size: 15px;">Watch</h4>
+                                <button class="btn fas fa-cart-plus addToCart" id="btn4" data-product-id="4">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="shopping-cart.js"></script>
+</body>
+
+</html>
