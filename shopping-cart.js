@@ -26,7 +26,7 @@ const updateShoppingCartHTML = function () {  // 3
 						<h5>${product.name}</h5>
 						<h6>Rs.${product.price}</h6>
 						<div>
-							<button class="button-minus btn-small" data-id=${product.id}>Remove </button>
+							<button class="button-minus btn-small" id="remove" onclick="cngtxt" data-id=${product.id}>Remove </button>
 							<span class="countOfProduct">${product.count}</span>
 							<button class="button-plus" data-id=${product.id}> +</button>
 						</div>
@@ -45,6 +45,12 @@ const updateShoppingCartHTML = function () {  // 3
 	}
 }
 
+function cngtxt() {
+	if(this.innerText === "Remove from Cart"){
+		this.innerText ="Add To Cart";
+	}
+}
+
 
 function updateProductsInCart(product) { // 2
 	for (let i = 0; i < productsInCart.length; i++) {
@@ -52,11 +58,13 @@ function updateProductsInCart(product) { // 2
 			// productsInCart[i].count += 1;
 			productsInCart.splice(i, 1);
 			localStorage.setItem('shoppingcart', JSON.stringify(productsInCart));
-			productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
 			return;
 		}
+		productsInCart[i].price = productsInCart[i].basePrice * productsInCart[i].count;
+
 	}
 	productsInCart.push(product);
+
 }
 
 const btnclk1 = document.querySelector("#btn1").addEventListener('click', function () {
@@ -133,6 +141,7 @@ parentElement.addEventListener('click', (e) => { // Last
 
 			}
 			if (productsInCart[i].count <= 0) {
+				document.getElementById('#btn[i]').innerText = "Add To Cart";
 				productsInCart.splice(i, 1);
 			}
 		}
