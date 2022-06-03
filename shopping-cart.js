@@ -6,8 +6,20 @@ const parentElement = document.querySelector('#buyItems');
 const cartSumPrice = document.querySelector('#sum-prices');
 const products = document.querySelectorAll('.product-under');
 
+var themeBtn = document.getElementById("th-btn");
+var icon = document.getElementById('icon');
 
-const countTheSumPrice = function () { // 4
+	themeBtn.onclick = function(){
+	document.body.classList.toggle("dark-theme");
+	if(document.body.classList.contains("dark-theme")){
+		icon.className= "fa-solid fa-sun  fa-2x";
+	}else{
+		icon.className = "fa-solid fa-moon  fa-2x";
+	}	
+}
+
+
+const countTheSumPrice = function () {
 	let sum = 0;
 	productsInCart.forEach(item => {
 		sum += item.price;
@@ -15,7 +27,7 @@ const countTheSumPrice = function () { // 4
 	return sum;
 }
 
-const updateShoppingCartHTML = function () {  // 3
+const updateShoppingCartHTML = function () {  
 	localStorage.setItem('shoppingCart', JSON.stringify(productsInCart));
 	if (productsInCart.length > 0) {
 		let result = productsInCart.map(product => {
@@ -52,7 +64,7 @@ function cngtxt() {
 }
 
 
-function updateProductsInCart(product) { // 2
+function updateProductsInCart(product) {
 	for (let i = 0; i < productsInCart.length; i++) {
 		if (productsInCart[i].id == product.id ) {
 			// productsInCart[i].count += 1;
@@ -102,7 +114,7 @@ const btnclk4 = document.querySelector("#btn4").addEventListener('click', functi
 });
 
 
-products.forEach(item => {   // 1
+products.forEach(item => {
 	item.addEventListener('click', (e) => {
 		if (e.target.classList.contains('addToCart')) {
 			const productID = e.target.dataset.productId;
@@ -125,7 +137,7 @@ products.forEach(item => {   // 1
 	});
 });
 
-parentElement.addEventListener('click', (e) => { // Last
+parentElement.addEventListener('click', (e) => {
 	const isPlusButton = e.target.classList.contains('button-plus');
 	const isRemoveButton = e.target.classList.contains('button-minus');
 	if (isPlusButton || isRemoveButton) {
@@ -141,7 +153,6 @@ parentElement.addEventListener('click', (e) => { // Last
 
 			}
 			if (productsInCart[i].count <= 0) {
-				document.getElementById('#btn[i]').innerText = "Add To Cart";
 				productsInCart.splice(i, 1);
 			}
 		}
@@ -150,3 +161,5 @@ parentElement.addEventListener('click', (e) => { // Last
 });
 
 updateShoppingCartHTML();
+
+
