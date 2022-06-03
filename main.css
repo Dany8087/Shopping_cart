@@ -148,10 +148,6 @@ nav .navbar-top {
     cursor: pointer;
 }
 
-/* .shoppingCartButton:hover,
-.account:hover * {
-    color: #0e5e53;
-} */
 
 .producstOnCart {
     -ms-overflow-style: none; /* IE and Edge */
@@ -280,7 +276,6 @@ nav .navbar-top {
 
 .buyItem button {
     background: transparent;
-    /* color: var(--primary-color); */
     cursor: pointer;
     font-weight: 900;
     font-size: 10px;
@@ -304,7 +299,6 @@ nav .navbar-top {
 .price {
     color: #dd3333;
     margin-top: 10px;
-    /* text-align: center; */
     padding: 5px;
     font-size: 1rem;
     top: 80px;
@@ -383,11 +377,6 @@ main {
         opacity: 1;
     }
 }
-
-/* .product-image:hover .product-over {
-    display: flex;
-    flex-direction: column;
-} */
 
 .product-image {
     position: relative;
